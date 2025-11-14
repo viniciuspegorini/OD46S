@@ -8,7 +8,7 @@ services:
     ports:
       - "${CLIENT_HOST_PORT}:${CLIENT_CONTAINER_PORT}"
     environment:
-      API_URL: ${API_HOST_URL}
+      API_URL: ${API_URL}
     labels:
         # Traefik Config
       - "traefik.enable=true"
