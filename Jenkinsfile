@@ -1,5 +1,40 @@
 pipeline {
     agent any
+
+    environment {        
+        SPRING_PROFILES_ACTIVE="prod"
+        POSTGRESQL_CRED = credentials('postgres-id')
+        DB_JDBC_USER = "${POSTGRESQL_CRED_USR}"
+        DB_JDBC_PASSWORD = "${POSTGRESQL_CRED_PSW}"
+        API_HOST_PORT=8150
+        API_CONTAINER_PORT=8150
+        
+        CLIENT_HOST_PORT=8151
+        CLIENT_CONTAINER_PORT=80
+
+        DATABASE_URL="jdbc:postgresql://postgresql:5432/od46s_test_labs"
+        DATABASE_USERNAME="${POSTGRESQL_CRED_USR}"
+        DATABASE_PASSWORD="${POSTGRESQL_CRED_PSW}"
+        
+        EMAIL_CRED = credentials('od46s-test-labs-email-id')
+        MAIL_HOST="smtp.gmail.com"
+        MAIL_PORT=587
+        MAIL_USERNAME="${EMAIL_CRED_USR}"
+        MAIL_PASSWORD="${EMAIL_CRED_USR}"
+
+        MINIO_CRED = credentials('od46s-test-labs-minio-id')
+        MINIO_URL="https://minio.app.pb.utfpr.edu.br"
+        MINIO_BUCKET="od46s-test-labs"
+        MINIO_ACCESS_KEY="${MINIO_CRED_USR}"
+        MINIO_SECRET_KEY="${MINIO_CRED_PSW}"
+        MINIO_SECURE=true
+
+        API_HOST_URL="od46s-test-labs-api.app.pb.utfpr.edu.br"
+        API_URL="https://od46s-test-labs-api.app.pb.utfpr.edu.br"
+        CLIENT_HOST_URL="od46s-test-labs.app.pb.utfpr.edu.br"
+        CLIENT_URL="https://od46s-test-labs.app.pb.utfpr.edu.br"
+    }
+
     stages {   
         stage('Build via Docker Compose') {
             steps {
