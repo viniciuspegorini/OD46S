@@ -21,7 +21,7 @@ pipeline {
         MAIL_USERNAME="${EMAIL_CRED_USR}"
         MAIL_PASSWORD="${EMAIL_CRED_USR}"
 
-        MINIO_CRED = credentials('od46s-test-labs-minio-id')
+        MINIO_CRED = credentials('dainf_labs_minio_id')
         MINIO_URL="https://minio.app.pb.utfpr.edu.br"
         MINIO_BUCKET="od46s-test-labs"
         MINIO_ACCESS_KEY="${MINIO_CRED_USR}"
