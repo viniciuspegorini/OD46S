@@ -17,6 +17,8 @@ services:
       - "traefik.http.routers.od46s-test-labs-client.entrypoints=websecure"
     restart: unless-stopped
     profiles: ["app"]
+    networks:
+      - web
 
   od46s-test-labs-api:
     image: od46s-test-labs-api
@@ -50,3 +52,18 @@ services:
       - "traefik.http.routers.od46s-test-labs-api.tls.certresolver=letsencrypt"
       - "traefik.http.routers.od46s-test-labs-api.entrypoints=websecure"
     profiles: ["app"]
+    networks:
+      - web
+      - database
+########################### NETWORKS
+networks:
+  web:
+    name: web
+    driver: bridge
+    external: true
+    attachable: true
+  database:
+    name: database
+    driver: bridge
+    external: false
+    attachable: true
