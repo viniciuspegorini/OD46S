@@ -27,6 +27,7 @@ pipeline {
         MINIO_ACCESS_KEY="${MINIO_CRED_USR}"
         MINIO_SECRET_KEY="${MINIO_CRED_PSW}"
         MINIO_SECURE=true
+        MINIO_PORT=443
 
         API_HOST_URL="od46s-test-labs-api.app.pb.utfpr.edu.br"
         API_URL="https://od46s-test-labs-api.app.pb.utfpr.edu.br"

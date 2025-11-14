@@ -44,6 +44,8 @@ services:
       - MINIO_BUCKET=${MINIO_BUCKET}
       - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
       - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}      
+      - MINIO_PORT=${MINIO_PORT}
+      - MINIO_SECURE=${MINIO_SECURE}
       - TZ=America/Sao_Paulo
     labels:
         # Traefik Config
