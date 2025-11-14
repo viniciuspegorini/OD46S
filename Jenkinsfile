@@ -3,15 +3,14 @@ pipeline {
 
     environment {        
         SPRING_PROFILES_ACTIVE="prod"
-        POSTGRESQL_CRED = credentials('postgres-id')
-        DB_JDBC_USER = "${POSTGRESQL_CRED_USR}"
-        DB_JDBC_PASSWORD = "${POSTGRESQL_CRED_PSW}"
+
         API_HOST_PORT=8150
         API_CONTAINER_PORT=8150
         
         CLIENT_HOST_PORT=8151
         CLIENT_CONTAINER_PORT=80
 
+        POSTGRESQL_CRED = credentials('postgres-id')
         DATABASE_URL="jdbc:postgresql://postgresql:5432/od46s_test_labs"
         DATABASE_USERNAME="${POSTGRESQL_CRED_USR}"
         DATABASE_PASSWORD="${POSTGRESQL_CRED_PSW}"
